@@ -14,6 +14,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "false",
+        "APP_URL": "https://server-task-management-system.vercel.app",
         "APP_KEY": "base64:h8QPex+ST0LqjRPAcf57GlbsFyK3dhyMcMnPregrmwU=",
         "BCRYPT_ROUNDS": "12",
         "APP_CONFIG_CACHE": "/tmp/config.php",
