@@ -1,28 +1,26 @@
 {
     "version": 2,
-    "builds": [
-        {
-            "src": "api/index.php",
-            "use": "vercel-php@0.6.1"
-        },
-        {
-            "src": "public/**",
-            "use": "@vercel/static"
+    "framework": null,
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.6.0"
         }
-    ],
+    },
     "routes": [
+        {
+            "src": "/(css|js|images|fonts|build)/(.*)",
+            "dest": "/public/$1/$2"
+        },
         {
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
     ],
-    "outputDirectory": "public",
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "false",
         "APP_URL": "https://server-task-management-system.vercel.app",
         "APP_KEY": "base64:h8QPex+ST0LqjRPAcf57GlbsFyK3dhyMcMnPregrmwU=",
-        "BCRYPT_ROUNDS": "12",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
@@ -31,11 +29,14 @@
         "VIEW_COMPILED_PATH": "/tmp",
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie",
+        "SESSION_DRIVER": "array",
+        "SSR_TEMP_PATH": "/tmp/ssr",
+        "NODE_PATH": "node",
         "DB_CONNECTION": "mysql",
         "DB_HOST": "znnzg.h.filess.io",
         "DB_PORT": "3306",
         "DB_DATABASE": "taskmanagement_pilotsand",
         "DB_USERNAME": "taskmanagement_pilotsand"
-    }
+    },
+    "outputDirectory": "public"
 }
